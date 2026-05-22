@@ -69,11 +69,9 @@ function displayCard() {
     
     const card = appState.currentCards[appState.currentCardIndex];
     
-    // Reset flip state - ALWAYS show character (front) first
+    // Reset flip state - show character first
     appState.isFlipped = false;
     flashcard.classList.remove('flipped');
-    cardFront.style.display = 'flex';
-    cardBack.style.display = 'none';
     
     // Update front of card - show the character
     charDisplay.textContent = card.char;
@@ -89,14 +87,6 @@ function displayCard() {
 function flipCard() {
     appState.isFlipped = !appState.isFlipped;
     flashcard.classList.toggle('flipped');
-    
-    if (appState.isFlipped) {
-        cardFront.style.display = 'none';
-        cardBack.style.display = 'flex';
-    } else {
-        cardFront.style.display = 'flex';
-        cardBack.style.display = 'none';
-    }
 }
 
 function skipCard() {
@@ -146,8 +136,6 @@ function backToMenu() {
     appState.sessionStarted = false;
     appState.isFlipped = false;
     flashcard.classList.remove('flipped');
-    cardFront.style.display = 'flex';
-    cardBack.style.display = 'none';
     
     difficultySection.style.display = 'block';
     cardSection.style.display = 'none';
