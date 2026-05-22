@@ -72,42 +72,48 @@ body {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Front: Morse Code */
 .card-front {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
-.card-front h1 {
-    font-size: 4rem;
-    margin: 0;
-    font-weight: bold;
-}
-
 .card-front .text-muted {
     color: rgba(255, 255, 255, 0.7) !important;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
+.morse-visual {
+    font-size: 3rem !important;
+    font-weight: bold;
+    letter-spacing: 15px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    margin: 20px 0;
+}
+
+#morseDisplay {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Back: Character */
 .card-back {
     background: white;
     border: 3px solid #667eea;
     transform: rotateY(180deg);
 }
 
-.card-back h3 {
-    font-size: 2.5rem;
+.card-back h1 {
+    font-size: 4rem;
     color: #667eea;
     font-weight: bold;
-    margin-bottom: 20px;
-    letter-spacing: 5px;
+    margin: 0;
 }
 
-.morse-visual {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 10px;
-    color: #764ba2;
-    font-family: 'Courier New', monospace;
+.card-back .text-muted {
+    color: #999 !important;
+    margin-top: 10px;
 }
 
 /* Buttons */
@@ -192,17 +198,13 @@ body {
         padding: 20px;
     }
 
-    .card-front h1 {
-        font-size: 3rem;
-    }
-
-    .card-back h3 {
-        font-size: 1.8rem;
-    }
-
     .morse-visual {
-        font-size: 1.2rem;
-        letter-spacing: 5px;
+        font-size: 2rem !important;
+        letter-spacing: 10px;
+    }
+
+    .card-back h1 {
+        font-size: 3rem;
     }
 
     .btn-group {
