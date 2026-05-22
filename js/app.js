@@ -73,12 +73,12 @@ function displayCard() {
     flashcard.classList.remove('flipped');
     cardBack.style.display = 'none';
     
-    // Update front of card
-    charDisplay.textContent = card.char;
-    
-    // Prepare back of card
-    morseDisplay.textContent = card.morse;
+    // Update front of card - show morse code visually
     dotDashDisplay.textContent = morseToVisual(card.morse);
+    morseDisplay.textContent = card.morse;
+    
+    // Prepare back of card - show the character
+    charDisplay.textContent = card.char;
     
     // Update statistics
     updateStatistics();
