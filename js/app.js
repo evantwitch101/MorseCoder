@@ -17,6 +17,7 @@ const charDisplay = document.getElementById('charDisplay');
 const morseDisplay = document.getElementById('morseDisplay');
 const dotDashDisplay = document.getElementById('dotDashDisplay');
 const cardBack = document.getElementById('cardBack');
+const cardFront = document.getElementById('cardFront');
 const remainingDisplay = document.getElementById('remaining');
 const learnedDisplay = document.getElementById('learned');
 const streakDisplay = document.getElementById('streak');
@@ -68,14 +69,15 @@ function displayCard() {
     
     const card = appState.currentCards[appState.currentCardIndex];
     
-    // Reset flip state
+    // Reset flip state - ALWAYS show morse code (front) first
     appState.isFlipped = false;
     flashcard.classList.remove('flipped');
+    cardFront.style.display = 'flex';
     cardBack.style.display = 'none';
     
     // Update front of card - show morse code visually
     dotDashDisplay.textContent = morseToVisual(card.morse);
-    morseDisplay.textContent = card.morse;
+    morseDisplay.textContent = '(' + card.morse + ')';
     
     // Prepare back of card - show the character
     charDisplay.textContent = card.char;
@@ -89,8 +91,10 @@ function flipCard() {
     flashcard.classList.toggle('flipped');
     
     if (appState.isFlipped) {
+        cardFront.style.display = 'none';
         cardBack.style.display = 'flex';
     } else {
+        cardFront.style.display = 'flex';
         cardBack.style.display = 'none';
     }
 }
@@ -142,6 +146,7 @@ function backToMenu() {
     appState.sessionStarted = false;
     appState.isFlipped = false;
     flashcard.classList.remove('flipped');
+    cardFront.style.display = 'flex';
     cardBack.style.display = 'none';
     
     difficultySection.style.display = 'block';
