@@ -69,18 +69,18 @@ function displayCard() {
     
     const card = appState.currentCards[appState.currentCardIndex];
     
-    // Reset flip state - ALWAYS show morse code (front) first
+    // Reset flip state - ALWAYS show character (front) first
     appState.isFlipped = false;
     flashcard.classList.remove('flipped');
     cardFront.style.display = 'flex';
     cardBack.style.display = 'none';
     
-    // Update front of card - show morse code visually
+    // Update front of card - show the character
+    charDisplay.textContent = card.char;
+    
+    // Prepare back of card - show morse code visually
     dotDashDisplay.textContent = morseToVisual(card.morse);
     morseDisplay.textContent = '(' + card.morse + ')';
-    
-    // Prepare back of card - show the character
-    charDisplay.textContent = card.char;
     
     // Update statistics
     updateStatistics();
