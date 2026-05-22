@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MorseCoder - Learn Morse Code with Flashcards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">🔴🟡 MorseCoder</span>
+            <div class="d-flex align-items-center">
+                <span class="text-light me-3">Progress: <span id="progress">0%</span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- Difficulty Selection -->
+        <div id="difficultySection" class="text-center mb-5">
+            <h2 class="mb-4">Choose Difficulty Level</h2>
+            <div class="btn-group" role="group">
+                <input type="radio" class="btn-check" name="difficulty" id="beginner" value="beginner" checked>
+                <label class="btn btn-outline-primary" for="beginner">Beginner (A-Z)</label>
+
+                <input type="radio" class="btn-check" name="difficulty" id="numbers" value="numbers">
+                <label class="btn btn-outline-primary" for="numbers">Numbers (0-9)</label>
+
+                <input type="radio" class="btn-check" name="difficulty" id="advanced" value="advanced">
+                <label class="btn btn-outline-primary" for="advanced">Advanced (Symbols)</label>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-success btn-lg" id="startBtn">Start Learning</button>
+            </div>
+        </div>
+
+        <!-- Flashcard Area -->
+        <div id="cardSection" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <!-- Flashcard -->
+                    <div class="flashcard" id="flashcard">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <h1 id="charDisplay">?</h1>
+                                <p class="text-muted">Click to reveal</p>
+                            </div>
+                            <div class="card-back" id="cardBack" style="display: none;">
+                                <h3 id="morseDisplay"></h3>
+                                <p id="dotDashDisplay" class="morse-visual"></p>
+                                <button class="btn btn-info btn-sm mt-3" id="playAudioBtn">
+                                    🔊 Play Sound
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="d-flex justify-content-center gap-2 mt-4">
+                        <button class="btn btn-secondary" id="skipBtn">Skip</button>
+                        <button class="btn btn-success" id="learnedBtn">Mark as Learned ✓</button>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="mt-5">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <h5>Cards Remaining</h5>
+                                <h3 id="remaining">0</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Learned</h5>
+                                <h3 id="learned">0</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Current Streak</h5>
+                                <h3 id="streak">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Message -->
+                    <div id="completeMsg" class="alert alert-success text-center mt-4" style="display: none;">
+                        <h3>🎉 Level Complete!</h3>
+                        <p>You've learned all the cards in this level.</p>
+                        <button class="btn btn-primary" id="restartBtn">Start Over</button>
+                        <button class="btn btn-secondary" id="backBtn">Back to Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/morse.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
